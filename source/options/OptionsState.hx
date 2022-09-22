@@ -49,7 +49,7 @@ class OptionsState extends MusicBeatState
 			//case 'Adjust Delay and Combo':
 				//LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 			case 'Osu!Maina Options':
-			    openSubState(new options.Osu!mainaoptions());
+			    LoadingState.loadAndSwitchState(new options.Osu!Maina());
 			    
 		}
 	}
