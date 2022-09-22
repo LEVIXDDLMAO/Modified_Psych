@@ -25,7 +25,7 @@ import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
 
-class Osu!ManiaSubState extends BaseOptionsMenu
+class OsuManiaSubState extends BaseOptionsMenu
 {
 	public function new(){
 		var option:Option = new Option('Hitsound Volume',

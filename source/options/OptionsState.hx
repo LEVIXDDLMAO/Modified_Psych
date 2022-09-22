@@ -45,7 +45,7 @@ class OptionsState extends MusicBeatState
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
 			case 'OSU!':
-				openSubState(new options.Osu!ManiaSubState());
+				openSubState(new options.OsuManiaSubState());
 		}
 	}
 
