@@ -170,8 +170,8 @@ var option:Option = new Option('Opponent Notes',
 
 			super();
 	}
+
 	function onChangeHitsoundVolume()
 	{
 		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
-	}
 }
