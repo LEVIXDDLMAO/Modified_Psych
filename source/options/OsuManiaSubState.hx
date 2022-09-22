@@ -45,7 +45,7 @@ class OsuManiaSubState extends BaseOptionsMenu
 			'Changes transparency of lane underlay behind the notes.',
 			'underlayAlpha',
 			'int',
-			10);
+			0);
 		option.displayFormat = '%v%';
 		option.scrollSpeed = 50;
 		option.minValue = 0;

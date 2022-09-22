@@ -28,6 +28,8 @@ class ClientPrefs {
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = false;
+	public static var hitsoundVolume:Float = 0;
+	public static var underlayAlpha:Int = 0;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'songspeed' => 1.0,
@@ -89,8 +91,8 @@ class ClientPrefs {
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.framerate = framerate;
-		//FlxG.save.data.cursing = cursing;
-		//FlxG.save.data.violence = violence;
+		FlxG.save.data.hitsoundVolume = hitsoundVolume;
+		FlxG.save.data.underlayAlpha = underlayAlpha;
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
@@ -157,12 +159,12 @@ class ClientPrefs {
 				FlxG.updateFramerate = framerate;
 			}
 		}
-		/*if(FlxG.save.data.cursing != null) {
-			cursing = FlxG.save.data.cursing;
+		if(FlxG.save.data.hitsoundVolume != null) {
+			hitsoundVolume = FlxG.save.data.hitsoundVolume;
 		}
-		if(FlxG.save.data.violence != null) {
-			violence = FlxG.save.data.violence;
-		}*/
+		if(FlxG.save.data.underlayAlpha != null) {
+			underlayAlpha = FlxG.save.data.underlayAlpha;
+		}
 		if(FlxG.save.data.camZooms != null) {
 			camZooms = FlxG.save.data.camZooms;
 		}
