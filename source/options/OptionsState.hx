@@ -29,7 +29,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Controls','Graphics', 'Visuals and UI', 'Gameplay', 'Osu!Maina'];
+	var options:Array<String> = ['Controls','Graphics', 'Visuals and UI', 'Gameplay'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -43,9 +43,7 @@ class OptionsState extends MusicBeatState
 			case 'Visuals and UI':
 				openSubState(new options.VisualsUISubState());
 			case 'Gameplay':
-				openSubState(new options.GameplaySettingsSubState());
-			case 'Osu!Maina':
-				openSubState(new options.Osu!MainaSubState());	    
+				openSubState(new options.GameplaySettingsSubState());	    
 		}
 	}
 

@@ -92,6 +92,38 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.maxValue = 30;
 		addOption(option);
 
+		var option:Option = new Option('Hitsound Volume',
+			'Funny notes does \"Tick!\" when you hit them."',
+			'hitsoundVolume',
+			'percent',
+			0);
+		addOption(option);
+		option.scrollSpeed = 1.6;
+		option.minValue = 0.0;
+		option.maxValue = 1;
+		option.changeValue = 0.1;
+		option.decimals = 1;
+		option.onChange = onChangeHitsoundVolume;
+
+var option:Option = new Option('Lane Underlay',
+			'Changes transparency of lane underlay behind the notes.',
+			'underlayAlpha',
+			'int',
+			10);
+		option.displayFormat = '%v%';
+		option.scrollSpeed = 50;
+		option.minValue = 0;
+		option.maxValue = 100;
+		addOption(option);
+
+
+var option:Option = new Option('Opponent Notes',
+			'If unchecked, opponent notes get hidden.',
+			'opponentStrums',
+			'bool',
+			true);
+		addOption(option);
+        
 		var option:Option = new Option('Sick! Hit Window',
 			'Changes the amount of time you have\nfor hitting a "Sick!" in miliseconds.',
 			'sickWindow',
@@ -136,6 +168,12 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		addOption(option);
 
-		super();
+			super();
+	}
+	function onChangeHitsoundVolume()
+	{
+		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
+	}
+}
 	}
 }
