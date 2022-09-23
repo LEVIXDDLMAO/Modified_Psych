@@ -26,7 +26,6 @@ import flixel.graphics.FlxGraphic;
 
 var select:Array<String> = ['Normal FNF', 'Osu!Maina Songs', 'Remixs', 'OG Mods', 'Covers'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
-	public static var menuBG:FlxSprite;
 
 function openSelectedSubstate(label:String) {
 		switch(label) {
