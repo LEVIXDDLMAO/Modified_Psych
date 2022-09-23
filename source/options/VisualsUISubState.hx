@@ -88,6 +88,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
+
+		var option:Option = new Option('Display MS Offset On Note Hits',
+			'If checked, a offset (in ms) will appear near notes',
+			'showMsText',
+			'bool',
+			false);
+		addOption(option);
 		
 		#if !mobile
 		var option:Option = new Option('FPS Counter',

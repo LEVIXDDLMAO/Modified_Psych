@@ -59,6 +59,14 @@ class OsuManiaSubState extends BaseOptionsMenu
 			'bool',
 			true);
 		addOption(option);
+
+		var option:Option = new Option('Note Skin',
+			"What note skin do you prefer for playing?",
+			'noteSkinSettings',
+			'string',
+			'Classic',
+			['Classic', 'Circle']);
+		addOption(option);
 	
 		super();
 	}
