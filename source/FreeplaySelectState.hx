@@ -30,18 +30,53 @@ class FreeplaySelectState extends MusicBeatState {
 	private static var curSelected:Int = 0;
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 
+	override function create() {
+		#if desktop
+		DiscordClient.changePresence("Freeplay select Menu", null);
+		#end
+
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.color = 0xFFea71fd;
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.updateHitbox();
+		bg.screenCenter();
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bg);
+
+		grpOptions = new FlxTypedGroup<Alphabet>();
+		add(grpOptions);
+
+		for (i in 0...options.length)
+		{
+			var optionText:Alphabet = new Alphabet(0, 0, options[i], true, false);
+			optionText.screenCenter();
+			optionText.y += (100 * (i - (options.length / 2))) + 50;
+			grpOptions.add(optionText);
+		}
+
+		selectorLeft = new Alphabet(0, 0, '>', true, false);
+		add(selectorLeft);
+		selectorRight = new Alphabet(0, 0, '<', true, false);
+		add(selectorRight);
+
+		changeSelection();
+		ClientPrefs.saveSettings();
+
+		super.create();
+	}	
+
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case 'Normal FNF':
                 MusicBeatState.switchState(new FreeplayState());
             case 'Osu!Maina Songs':
-				openSubState(new menu.OsuSongsSubState());
+				openSubState(new OsuSongsSubState());
 			case 'Remixs':
-				openSubState(new menu.RemixsSubState());
+				openSubState(new RemixsSubState());
 			case 'OG Mods':
-				openSubState(new menu.OGModsSubState());
+				openSubState(new OGModsSubState());
 			case 'Covers':
-				openSubState(new menu.CoversSubState());
+				openSubState(new CoversSubState());
 		}
 	}
 	override function closeSubState() {
@@ -71,8 +106,8 @@ class FreeplaySelectState extends MusicBeatState {
 	function changeSelection(change:Int = 0) {
 		curSelected += change;
 		if (curSelected < 0)
-			curSelected = options.length - 1;
-		if (curSelected >= options.length)
+			curSelected = select.length - 1;
+		if (curSelected >= select.length)
 			curSelected = 0;
 
 		var bullShit:Int = 0;
