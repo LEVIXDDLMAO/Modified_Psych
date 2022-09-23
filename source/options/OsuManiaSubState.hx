@@ -65,7 +65,7 @@ class OsuManiaSubState extends BaseOptionsMenu
 			'noteSkinSettings',
 			'string',
 			'Classic',
-			['Classic', 'Circle']);
+			['Classic', 'Circle', 'Bar']);
 		addOption(option);
 	
 		super();
