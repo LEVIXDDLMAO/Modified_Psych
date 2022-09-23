@@ -23,11 +23,9 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
-import Controls;
 
 var select:Array<String> = ['Normal FNF', 'Osu!Maina Songs', 'Remixs', 'OG Mods', 'Covers'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
-	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 
 function openSelectedSubstate(label:String) {
