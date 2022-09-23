@@ -226,6 +226,9 @@ class PlayState extends MusicBeatState
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
 
+	var allNotesMs:Float = 0;
+	var averageMs:Float = 0;
+
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
 	public static var seenCutscene:Bool = false;
@@ -1510,14 +1513,18 @@ class PlayState extends MusicBeatState
 			var swagCounter:Int = 0;
 
 			if (ClientPrefs.showMsText) {
-				msTimeTxt.alpha = 1;
-				msTimeTxt.text =Std.string(Math.round(noteDiff)) + "ms";
-				if (msTimeTxtTween != null){
-					msTimeTxtTween.cancel(); msTimeTxtTween.destroy(); // top 10 awesome code
+				if (ClientPrefs.downScroll) {
+					msTimeTxt.x = playerStrums.members[1].x-100;
+					msTimeTxt.y = playerStrums.members[1].y+100;
+				} else {
+					msTimeTxt.x = playerStrums.members[1].x-100;
+					msTimeTxt.y = playerStrums.members[1].y-50;
 				}
-				msTimeTxtTween = FlxTween.tween(msTimeTxt, {alpha: 0}, 0.25, {
-					onComplete: function(tw:FlxTween) {msTimeTxtTween = null;}, startDelay: 0.7
-				});
+
+				if (ClientPrefs.middleScroll) {
+					msTimeTxt.x = playerStrums.members[0].x-250;
+					msTimeTxt.y = playerStrums.members[1].y+30;
+				}
 			}
 
 			startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
