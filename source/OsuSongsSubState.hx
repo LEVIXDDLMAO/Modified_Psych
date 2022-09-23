@@ -1,5 +1,7 @@
 package;
 
-class WeekData {
+class OsuSongsSubState {
 	public static var songsNames:Array<Dynamic> = [
 		['Freedom-drive']
+	]	
+}
